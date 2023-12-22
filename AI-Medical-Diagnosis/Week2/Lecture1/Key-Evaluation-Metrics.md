@@ -1,6 +1,4 @@
-# Key Evaluation Metrics
-
-## Sensitivity, Specificity and Evaluation Metrics
+# Sensitivity, Specificity and Evaluation Metrics
 
 - **Sensitivity:**
    - Definition: Sensitivity, also known as True Positive Rate or Recall, measures the ability of a model to correctly identify positive instances among all actual positive instances.
@@ -19,13 +17,13 @@ An example scenario involving a test set with normal and disease cases is presen
 
 The example demonstrates that, despite having the same accuracy, a model attempting to distinguish between healthy and disease patients may be considered more useful.
 
-## Accuracy in Terms of Conditional Probability
+# Accuracy in Terms of Conditional Probability
 
 Accuracy is seen as the probability of the model being correct in its predictions. This probability is further broken down into two components: the probability of the model being correct when the patient has the disease and the probability of the model being correct when the patient is normal.
 
 The law of conditional probability is then introduced, stating that the probability of both A and B is equal to the probability of A given B multiplied by the probability of B. This law is applied to expand the two components of accuracy. For instance, the probability of being correct given the patient has the disease is equivalent to the probability of predicting positive given a patient has the disease. Similarly, the probability of being correct when the patient is normal is equivalent to the probability of predicting negative given a patient is normal.
 
-## Sensitivity, Specificity and Prevalence
+# Sensitivity, Specificity and Prevalence
 
 - **Sensitivity:**
    - Sensitivity is defined as the probability that the model correctly classifies a patient as having the disease given that they actually have the disease.
@@ -43,7 +41,7 @@ The accuracy is expressed as a weighted average of sensitivity and specificity, 
 
 The formula for accuracy in terms of sensitivity, specificity, and prevalence is provided, allowing for a comprehensive understanding of how these metrics are interconnected. The example calculations demonstrate how sensitivity and specificity are computed using the given data and how accuracy can be derived from these metrics, considering the prevalence of the disease in the population. This approach allows for a nuanced evaluation of diagnostic AI models by considering their performance in different aspects of disease detection and normal classification.
 
-## PPV, NPV
+# PPV, NPV
 
 - **Positive Predictive Value (PPV):**
    - PPV answers the question: Given the model predicts positive on a patient, what is the probability that the patient actually has the disease?
@@ -55,7 +53,7 @@ The formula for accuracy in terms of sensitivity, specificity, and prevalence is
    - It is computed as the fraction of negative predictions that are correctly identified as normal.
    - The formula for NPV is the number of true negative cases divided by the total number of negative predictions.
 
-## Confusion Matrix
+# Confusion Matrix
 
 **Confusion Matrix:**
 - The confusion matrix is a tabular representation that provides a comprehensive view of a classifier's performance.
@@ -74,7 +72,7 @@ The formula for accuracy in terms of sensitivity, specificity, and prevalence is
 - Specificity involves the count of true negatives divided by the sum of true negatives and false positives, corresponding to the bottom right cell and the entire normal ground-truth row in the confusion matrix.
 - The confusion matrix serves as a tool to calculate various evaluation metrics, providing a clear connection between the metrics and the counts within the matrix.
 
-## Calculating the PPV in terms of sensitivity, specificity, and prevalence
+# Calculating the PPV in terms of sensitivity, specificity, and prevalence
 
 1. **PPV Equation:**
    - The PPV is denoted as P(pos∣pos^), meaning the probability of being actually positive given a positive prediction.
