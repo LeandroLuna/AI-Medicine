@@ -1,0 +1,23 @@
+# Collecting Time Data
+
+In this lesson on "Collecting Time Data," the focus is on survival data modeling. To effectively model survival, it is crucial to represent the data in a processable form. The primary challenge addressed is censored observations, a specific type of missing data. The discussion revolves around survival data and the concept of censoring.
+
+Previously, prognostic models examined the probability of survival beyond a specific timeframe, often five years. The data used in such models consisted of patient information, indicating whether an event occurred (coded as 1) or not (coded as 0) within the given timeframe. The outcome data was binary, with outcomes being either yes or no, representing the occurrence of an event in five years.
+
+However, when dealing with survival data, the goal shifts to answering a broader question: What is the probability of survival not only past five years but beyond any time 't'? To address this, the lesson emphasizes the need for information on survival probabilities beyond specific time points. The discussion prompts an exploration of acquiring such information for patients through examples.
+
+# When a Stroke is Not Observed
+
+The lecture "When a Stroke is Not Observed" discusses the analysis of patient data in the context of monitoring stroke events after treatment. The speaker provides examples of patients who received treatment and were observed for the occurrence of a stroke. The analysis involves tracking the time elapsed between the treatment and the potential stroke event.
+
+In the first example, a patient received treatment in September 2018 and had a stroke exactly one year later in September 2019, representing a 12-month interval. The second example involves a patient treated in August 2018, tracked for over a year until October 2019, without any observed stroke events. In this case, the period is 14 months, indicating the absence of an event during that time. The third example discusses a patient treated in August 2018 who withdrew from the study in November 2018, making it unclear whether a stroke occurred afterward. This scenario is labeled as "censoring," where the observed time is 3+ months.
+
+The speaker emphasizes the importance of accounting for censoring in survival data analysis, acknowledging situations where the event of interest may not be observed for various reasons. The lecture highlights the need to consider censoring observations when analyzing time-to-event data in medical studies.
+
+# Heart Attack Data
+
+The lecture on "Heart Attack Data" discusses the application of knowledge to a study involving patients who undergo surgery, focusing on whether they experience a heart attack post-surgery. The study spanned from January 2015 to July 2019, with patients receiving surgery at different times. The speaker illustrates the tracking of the time to a heart attack for three patients. Patient 1, who had surgery in March 2016, experienced a heart attack in March 2017, indicating a time of 12 months. Patient 2 had surgery in July 2015, and by July 2019, no heart attack was observed, resulting in a recorded time of 48 months (equivalent to four years). Patient 3, with surgery in November 2015, dropped out in November 2017 after a period of two years, or 24 months, without a heart attack event. The survival data is represented by transitioning from binary (yes or no) to considering when an event occurs, measuring the time from origin to event and incorporating censored observations into the dataset.
+
+# Right Censoring
+
+In this lesson on "Right Censoring," the speaker discusses the concept in the context of survival data analysis. The term "censoring" is introduced with an example of a patient who underwent surgery but withdrew from the study before its conclusion, leading to an incomplete observation of whether the patient experienced an event. The concept of Right Censoring is explained as situations where the time to an event is only known to exceed a certain value. The term "3+" is used as an example to represent a data point where the event is expected to occur after three months from the last contact. Two types of Right Censoring are highlighted: end-of-study censoring, where a patient is censored due to the study ending, and loss-to-follow-up censoring, where a patient drops out before the study concludes. The importance of understanding censoring is emphasized, especially in the context of building survival models for analyzing survival data.
