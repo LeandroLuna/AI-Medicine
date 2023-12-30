@@ -1,0 +1,33 @@
+# Causal Inference
+
+In this lesson on causal inference, the instructor discusses the fundamental problem of determining causation and how machine learning techniques can assist in identifying patients who are likely to benefit from treatment. The key concern in deciding whether to administer treatment is understanding its effect on patients. If the treatment is expected to reduce the risk of adverse outcomes, such as a heart attack, it is considered beneficial; otherwise, it may be harmful. The potential outcomes for a patient include benefiting from the treatment, having no effect, or being harmed.
+
+The Neyman-Rubin causal model is introduced as a way to represent these possibilities. For each patient, outcomes with and without treatment are denoted as Y_i of 1 and Y_i of 0, respectively. The unit level treatment effect, representing the difference between potential outcomes, is crucial. A value of -1 implies benefit, 0 indicates no effect, and 1 signifies harm.
+
+By computing averages for each column of potential outcomes across a dataset, one can determine the fraction of patients experiencing various outcomes. The average treatment effect is calculated as the difference between the averages of outcomes with and without treatment. In the example provided, the average treatment effect is -0.2, representing the average decrease in risk with treatment. This value is obtained by subtracting the average of outcomes without treatment (0.6) from the average of outcomes with treatment (0.4), confirming the calculation of -0.4 minus 0.6.
+
+# Average Treatment Effect
+
+The lecture discusses the concept of Average Treatment Effect (ATE) in the context of causal inference. The fundamental challenge in causal inference is the inability to observe both the treated and untreated outcomes for a patient. The observed outcome is termed factual, while the unobserved outcome is called counterfactual. In the absence of randomized control trial data, estimating ATE involves grouping treated and untreated patients, computing the mean of their observed outcomes, and then calculating the difference.
+
+The lecturer demonstrates this process with a hypothetical example, showing that the average treatment effect can be computed by taking the difference between the mean outcomes of treated and untreated groups. The resulting ATE value, in this case, is negative 0.19. The lecture also highlights the relationship between ATE and Absolute Risk Reduction (ARR), where ARR is the negative of ATE. In this example, the ARR is 0.19, implying a 19 percent average reduction in risk with treatment.
+
+The lecture emphasizes the applicability of estimating ATE using randomized control trial data but acknowledges challenges in making individualized treatment effect predictions without strong assumptions about data generation.
+
+# Conditional Average Treatment Effect
+
+The lecture discusses the concept of Conditional Average Treatment Effect (CATE) in the context of medical treatments. CATE aims to provide a more individualized estimate of treatment benefits based on specific patient characteristics. Using the example of age, the speaker explains that CATE involves estimating the expected difference in potential outcomes when a particular characteristic (e.g., age) is known.
+
+In a randomized control trial, the estimation of CATE is broken down into two components. First, the expected outcome for patients with the specific characteristic is estimated in the treatment group. Similarly, the expected outcome for patients with the same characteristic is estimated in the control group. The difference between these two expectations yields the CATE.
+
+The challenge arises when there are few samples with matching characteristics, making direct estimation from data imprecise. This challenge becomes more complex when considering multiple patient features, such as blood pressure. The proposed solution involves learning a relationship between features (e.g., age, blood pressure) and outcomes. The speaker introduces the treatment response function (mu hat of 1) and the control response function (mu hat of 0), which provide estimates of outcomes in the treatment and control arms, respectively. The CATE is then obtained by taking the difference between these two functions.
+
+# T-Learner
+
+The T-Learner method involves utilizing two base learner models, Mu hat one and Mu hat zero, to estimate the conditional average treatment effect. These models, which can be decision trees or other chosen models, are trained on randomized control trial data. Mu hat one is learned from patients in the treatment arm, while Mu hat zero is learned from patients in the control arm. The models output risk scores based on inputs such as age and blood pressure.
+
+To estimate the treatment effect for a new patient, the risk scores from Mu hat one and Mu hat zero are compared. The difference between these scores gives the conditional average treatment effect for the specific patient. This approach, known as the T-Learner or Two-Tree method, allows for the estimation of treatment effects by considering the differences between prognostic models for treatment and control groups.
+
+# S-Learner
+
+In the S-Learner approach, a single model (mu hat) is used to estimate treatment effects by incorporating the treatment as an indicator in the model, similar to other features like age or blood pressure. The model is trained on randomized control trial data, and a decision tree is constructed to predict outcomes under both treatment and control conditions. The treatment effect for a new patient is then calculated by taking the difference in the expected outcomes with and without treatment. However, a disadvantage of the S-Learner is the possibility of learning a tree that ignores the treatment feature, leading to treatment effect estimates of zero for all patients. This limitation arises because the model may choose not to use the treatment feature, making it less effective in capturing individual treatment effects. In comparison to the T-Learner, which uses two different models, the S-Learner may suffer from this issue. Both T and S-Learner methods are among the simpler approaches for estimating individual treatment effects based on patient covariates, and these personalized estimates could be more beneficial for making individualized treatment decisions compared to average treatment effects.
